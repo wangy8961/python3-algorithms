@@ -20,8 +20,8 @@ def bubbLe_sort2(L):  # 优化后，最优时间复杂度为O(n)，最坏时间�
             return
 
 
-L1 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-L2 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+L1 = [93, 17, 20, 26, 31, 44, 54, 55, 77]
+L2 = [93, 17, 20, 26, 31, 44, 54, 55, 77]  # 优化后的冒泡算法，只需要进行2次冒泡操作
 
 print('bubbLe_sort1 cost: ', timeit('bubbLe_sort1(L1)', 'from __main__ import bubbLe_sort1, L1'))
 print('bubbLe_sort2 cost: ', timeit('bubbLe_sort2(L2)', 'from __main__ import bubbLe_sort2, L2'))
