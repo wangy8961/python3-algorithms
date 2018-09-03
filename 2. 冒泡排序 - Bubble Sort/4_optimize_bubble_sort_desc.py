@@ -27,7 +27,8 @@ if __name__ == '__main__':
 
     print('Bubble sort function run 1,000,000 times, cost: ', timeit('bubbLe_sort(L2)', 'from __main__ import bubbLe_sort, L2'), 'seconds.')
 
-    # Output:
-    # Before:  [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    # After:  [93, 77, 55, 54, 44, 31, 26, 20, 17]
-    # Bubble sort function run 1,000,000 times, cost:  3.062298995 seconds.
+
+# Output:
+# Before:  [54, 26, 93, 17, 77, 31, 44, 55, 20]
+# After:  [93, 77, 55, 54, 44, 31, 26, 20, 17]
+# Bubble sort function run 1,000,000 times, cost:  3.062298995 seconds.

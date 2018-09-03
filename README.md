@@ -1,2 +1,17 @@
-# python3-algorithms
-Python3 算法介绍与应用，典型的排序算法：冒泡排序、选择排序、插入排序、希尔排序、堆排序、快速排序、归并排序、计数排序、基数排序
+# [> Python3数据结构与算法](http://www.madmalls.com/blog/category/data-structures-and-algorithms-in-python3/)
+
+
+[![Python](https://img.shields.io/badge/python-v3.4%2B-blue.svg)](https://www.python.org/)
+![build]](https://img.shields.io/badge/build-passing-green.svg)
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+
+
+# 1. 数据结构
+
+敬请期待
+
+
+# 2. 排序算法
+
+- [Python3数据结构与算法01 - 算法概论](http://www.madmalls.com/blog/post/algorithm-introduction/)
+- [Python3数据结构与算法02 - 冒泡排序](http://www.madmalls.com/blog/post/bubble-sort-algorithm/)
