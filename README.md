@@ -2,7 +2,7 @@
 
 
 [![Python](https://img.shields.io/badge/python-v3.4%2B-blue.svg)](https://www.python.org/)
-[![build]](https://img.shields.io/badge/build-passing-green.svg)](http://www.madmalls.com/)
+[![build](https://img.shields.io/badge/build-passing-green.svg)](http://www.madmalls.com/)
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 
