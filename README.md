@@ -15,3 +15,5 @@
 
 - [Python3数据结构与算法01 - 算法概论](http://www.madmalls.com/blog/post/algorithm-introduction/)
 - [Python3数据结构与算法02 - 冒泡排序](http://www.madmalls.com/blog/post/bubble-sort-algorithm/)
+- [Python3数据结构与算法03 - 选择排序](http://www.madmalls.com/blog/post/selection-sort-algorithm/)
+- [Python3数据结构与算法04 - 插入排序](http://www.madmalls.com/blog/post/insertion-sort-algorithm/)
