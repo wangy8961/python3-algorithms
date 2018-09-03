@@ -1,3 +1,8 @@
+# [> 算法概述](http://www.madmalls.com/blog/post/algorithm-introduction/)
+
+欢迎star， 并访问我的博客： www.madmalls.com
+
+
 # 1. 特征
 
 An algorithm is a sequence of unambiguous instructions used for solving a problem, which can be implemented (as a program) on a computer
