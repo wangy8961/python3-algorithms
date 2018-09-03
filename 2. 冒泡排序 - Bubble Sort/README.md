@@ -1,4 +1,4 @@
-# [> 算法概述](http://www.madmalls.com/blog/post/bubble-sort-algorithm/)
+# [> Python3数据结构与算法02 - 冒泡排序](http://www.madmalls.com/blog/post/bubble-sort-algorithm/)
 
 欢迎star， 并访问我的博客： www.madmalls.com
 
