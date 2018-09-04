@@ -45,7 +45,7 @@ An algorithm is a sequence of unambiguous instructions used for solving a proble
 
 ![时间复杂度](http://www.madmalls.com/admin/medias/uploaded/time-complexity-c27f39bd.png)
 
-> **注意： 主要关注算法的`最坏时间复杂度`
+> **注意： 主要关注算法的`最坏时间复杂度`**
 
 ## 2.2 空间复杂度
 

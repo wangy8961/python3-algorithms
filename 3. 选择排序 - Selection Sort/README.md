@@ -60,11 +60,18 @@ Selection sort function run 1,000,000 times, cost:  10.988781472000001 seconds.
 
 ## 3.1 时间复杂度
 
-- 最优时间复杂度： `O(n^2)`
-- 平均时间复杂度： `O(n^2)`
-  ![selection sort 03](http://www.madmalls.com/admin/medias/uploaded/selection-sort-03-17dd63a9.gif)
-- 最坏时间复杂度： `O(n^2)`，比如传入已经按 "降序" 排好序的列表，却需要按 "升序" 去排列它
-  ![selection sort 04](http://www.madmalls.com/admin/medias/uploaded/selection-sort-04-e4722bb8.gif)
+### (1) 最优时间复杂度: `O(n^2)`
+
+### (2) 平均时间复杂度: `O(n^2)`
+
+![selection sort 03](http://www.madmalls.com/admin/medias/uploaded/selection-sort-03-17dd63a9.gif)
+
+### (3) 最坏时间复杂度: `O(n^2)`
+
+比如传入已经按 "降序" 排好序的列表，却需要按 "升序" 去排列它
+
+![selection sort 04](http://www.madmalls.com/admin/medias/uploaded/selection-sort-04-e4722bb8.gif)
+
 
 ## 3.2 空间复杂度
 
