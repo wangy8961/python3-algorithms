@@ -1,6 +1,3 @@
-from timeit import timeit
-
-
 def selection_sort(L):
     '''选择排序，降序'''
     n = len(L)
@@ -17,16 +14,10 @@ def selection_sort(L):
 
 if __name__ == '__main__':
     L1 = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    L2 = L1.copy()
-
     print('Before: ', L1)
     selection_sort(L1)
     print('After: ', L1)
 
-    print('Selection sort function run 1,000,000 times, cost: ', timeit('selection_sort(L2)', 'from __main__ import selection_sort, L2'), 'seconds.')
-
-
-# Output:
-# Before:  [54, 26, 93, 17, 77, 31, 44, 55, 20]
-# After:  [93, 77, 55, 54, 44, 31, 26, 20, 17]
-# Selection sort function run 1,000,000 times, cost:  11.174898938 seconds.
+    # Output:
+    # Before:  [54, 26, 93, 17, 77, 31, 44, 55, 20]
+    # After:  [93, 77, 55, 54, 44, 31, 26, 20, 17]
