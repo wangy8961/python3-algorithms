@@ -8,12 +8,10 @@ def insertion_sort(L):
         return
 
     for i in range(1, n):
-        temp = L[i]
-        j = i - 1
-        while j >= 0 and temp > L[j]:
-            L[j+1] = L[j]
+        j = i
+        while j >= 1 and L[j] > L[j-1]:  # 第1次是比较 "未排序序列" 的第1个元素和 "已排序序列" 的最后1个元素
+            L[j], L[j-1] = L[j-1], L[j]
             j -= 1
-        L[j+1] = temp
 
 
 if __name__ == '__main__':
@@ -30,4 +28,4 @@ if __name__ == '__main__':
 # Output:
 # Before:  [54, 26, 93, 17, 77, 31, 44, 55, 20]
 # After:  [93, 77, 55, 54, 44, 31, 26, 20, 17]
-# Insertion sort function run 1,000,000 times, cost:  5.185071438 seconds.
+# Insertion sort function run 1,000,000 times, cost:  3.727573309 seconds.
