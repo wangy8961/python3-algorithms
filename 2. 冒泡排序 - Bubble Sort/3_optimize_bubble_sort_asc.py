@@ -4,6 +4,9 @@ def bubbLe_sort(L):
     最坏时间复杂度还是O(n^2)
     '''
     n = len(L)
+    if n <= 1:
+        return
+
     for i in range(n-1):
         flag = False
         for j in range(n-i-1):

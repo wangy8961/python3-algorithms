@@ -1,6 +1,9 @@
 def selection_sort(L):
     '''选择排序，降序'''
     n = len(L)
+    if n <= 1:
+        return
+
     for i in range(n-1):  # 共需要n-1次选择操作
         max_index = i  # 首先假设 "未排序列表"(上图中非绿色框) 的最大元素是它的第1个元素，第1次选择操作则假设L[0]是最大的，第2次操作则假设L[1]是最大的
 

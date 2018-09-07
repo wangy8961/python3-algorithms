@@ -1,6 +1,9 @@
 def bubbLe_sort(L):
     '''冒泡排序，升序'''
     n = len(L)
+    if n <= 1:
+        return
+
     for i in range(n-1):  # 共需要n-1次冒泡操作
 
         # 每次冒泡操作，只遍历并比较 "未排序的序列" 中的元素（会依次变少）

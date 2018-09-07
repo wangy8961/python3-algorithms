@@ -6,6 +6,8 @@ def shell_sort(L):
     步长序列使用 Sedgewick 提出的[1, 5, 19, 41, 109, 209, 505, 929 ...]，此时时间复杂度为 O(n (logn)^2)
     '''
     n = len(L)
+    if n <= 1:
+        return
 
     gen = sedgewick_gaps(n)  # [1, 5, 19, 41, 109, 209, 505, 929 ...]
     for gap in reversed(list(gen)):  # 将gen生成器对象转换成列表，再倒序: [41, 19, 5, 1]

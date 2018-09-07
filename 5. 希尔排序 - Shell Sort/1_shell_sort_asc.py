@@ -1,6 +1,8 @@
 def shell_sort(L):
     '''希尔排序，升序'''
     n = len(L)
+    if n <= 1:
+        return
 
     gap = n // 2  # 初始步长
     while gap > 0:  # 最后一次步长为1（即普通的插入排序），然后整个希尔排序结束

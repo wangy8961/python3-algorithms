@@ -4,6 +4,8 @@ from gaps import sedgewick_gaps
 def shell_sort(L):
     '''希尔排序，降序'''
     n = len(L)
+    if n <= 1:
+        return
 
     gen = sedgewick_gaps(n)  # [1, 5, 19, 41, 109, 209, 505, 929 ...]
     for gap in reversed(list(gen)):  # 将gen生成器对象转换成列表，再倒序: [41, 19, 5, 1]

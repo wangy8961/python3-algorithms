@@ -1,6 +1,8 @@
 def insertion_sort(L):
     '''插入排序，降序'''
     n = len(L)
+    if n <= 1:
+        return
 
     for i in range(1, n):
         temp = L[i]
