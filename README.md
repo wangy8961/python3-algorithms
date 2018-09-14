@@ -18,3 +18,4 @@
 - [Python3数据结构与算法03 - 选择排序](http://www.madmalls.com/blog/post/selection-sort-algorithm/)
 - [Python3数据结构与算法04 - 插入排序](http://www.madmalls.com/blog/post/insertion-sort-algorithm/)
 - [Python3数据结构与算法05 - 希尔排序](http://www.madmalls.com/blog/post/shell-sort-algorithm/)
+- [Python3数据结构与算法06 - 归并排序](http://www.madmalls.com/blog/post/merge-sort-algorithm/)

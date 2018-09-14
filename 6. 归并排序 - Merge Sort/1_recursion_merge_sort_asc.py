@@ -8,7 +8,7 @@ def merge_sort(L):
     2. 当 left 和 right 都被赋值为单个元素的子序列后，再执行 '归并(Merging)' 操作，返回排好序的序列给上一层函数
     即上一层函数的 left 或 right 被赋值为递归函数的返回值
 
-    不懂的，看我的博客图解: http://www.madmalls.com
+    不懂的，看我的博客图解: http://www.madmalls.com/blog/post/merge-sort-algorithm/
     '''
     n = len(L)
     # 两个作用：
