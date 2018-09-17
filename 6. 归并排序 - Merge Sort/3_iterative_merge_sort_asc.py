@@ -2,7 +2,7 @@ from collections import deque
 
 
 def merge_sort(L):
-    '''使用 迭代(iteration) 的方式，实现归并排序算法
+    '''使用 迭代(iterative) 的方式，实现归并排序算法
     自底向上(Bottom Up)：
     1. size = 1, 对单个元素的左右子序列进行归并操作
     2. size = 2, 步骤1归并排序后，每2个元素已经是排序好的，所以可以对分别包含2个元素的左右子序列进行归并操作

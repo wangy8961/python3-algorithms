@@ -1,5 +1,5 @@
 def merge_sort(L):
-    '''使用 '递归(recursion)' 的方式，实现归并排序算法
+    '''使用 '递归(recursive)' 的方式，实现归并排序算法
     自顶向下(Top Down)：
     1. 递归 '拆分(Splitting)' 成左右两个子序列，首先递归 left = merge_sort(L[:mid])
     不断递归左边，当某一层递归中，左子序列只有一个元素时，向上返回上一层调用，即 left 获取到返回值；

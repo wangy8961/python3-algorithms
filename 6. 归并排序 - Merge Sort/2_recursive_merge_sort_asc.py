@@ -2,7 +2,7 @@ from collections import deque
 
 
 def merge_sort(L):
-    '''使用 '递归(recursion)' 的方式，实现归并排序算法
+    '''使用 '递归(recursive)' 的方式，实现归并排序算法
     自顶向下(Top Down)
     '''
     n = len(L)
