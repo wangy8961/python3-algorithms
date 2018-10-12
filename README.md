@@ -7,7 +7,7 @@
 
 # 1. 算法概述
 
-- [Python3数据结构与算法01 - 算法概论](http://www.madmalls.com/blog/post/algorithm-introduction/)
+- [Python3数据结构与算法01 - 算法概述](http://www.madmalls.com/blog/post/algorithm-introduction/)
 
 # 2. 数据结构
 
