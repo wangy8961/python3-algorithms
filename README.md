@@ -7,30 +7,42 @@
 
 # 1. 算法概述
 
-- [Python3数据结构与算法01 - 算法概述](http://www.madmalls.com/blog/post/algorithm-introduction/)
+- [算法概述](http://www.madmalls.com/blog/post/algorithm-introduction/)
 
 # 2. 数据结构
 
 ## 2.1 线性表
 
-- [Python3数据结构与算法02 - 顺序表](http://www.madmalls.com/blog/post/order-list/)
-- [Python3数据结构与算法03 - 单向链表](http://www.madmalls.com/blog/post/singly-linked-list/)
-- [Python3数据结构与算法04 - 双向链表](http://www.madmalls.com/blog/post/doubly-linked-list/)
-- [Python3数据结构与算法05 - 单向循环链表](http://www.madmalls.com/blog/post/singly-circular-linked-list/)
+- [Python3数据结构01 - 顺序表](http://www.madmalls.com/blog/post/order-list/)
+- [Python3数据结构02 - 单向链表](http://www.madmalls.com/blog/post/singly-linked-list/)
+- [Python3数据结构03 - 双向链表](http://www.madmalls.com/blog/post/doubly-linked-list/)
+- [Python3数据结构04 - 单向循环链表](http://www.madmalls.com/blog/post/singly-circular-linked-list/)
 
 ## 2.2 栈
 
+- [Python3数据结构05 - 栈](http://www.madmalls.com/blog/post/stack/)
+
 ## 2.3 队列
+
+- [Python3数据结构06 - 队列](http://www.madmalls.com/blog/post/queue-and-deque/)
 
 ## 2.4 树
 
+- [Python3数据结构07 - 树、3种存储结构、二叉树](http://www.madmalls.com/blog/post/tree-and-how-to-storage/)
+
 ## 2.5 图
 
-# 3. 排序算法
 
-- [Python3数据结构与算法 - 冒泡排序](http://www.madmalls.com/blog/post/bubble-sort-algorithm/)
-- [Python3数据结构与算法 - 选择排序](http://www.madmalls.com/blog/post/selection-sort-algorithm/)
-- [Python3数据结构与算法 - 插入排序](http://www.madmalls.com/blog/post/insertion-sort-algorithm/)
-- [Python3数据结构与算法 - 希尔排序](http://www.madmalls.com/blog/post/shell-sort-algorithm/)
-- [Python3数据结构与算法 - 归并排序](http://www.madmalls.com/blog/post/merge-sort-algorithm/)
-- [Python3数据结构与算法 - 快速排序](http://www.madmalls.com/blog/post/quick-sort-algorithm/)
+# 3. 查找算法
+
+- [Python3查找算法01 - 顺序查找](http://www.madmalls.com/blog/post/sequential-search/)
+- [Python3查找算法02 - 二分查找](http://www.madmalls.com/blog/post/binary-search/)
+
+# 4. 排序算法
+
+- [Python3排序算法01 - 冒泡排序](http://www.madmalls.com/blog/post/bubble-sort-algorithm/)
+- [Python3排序算法02 - 选择排序](http://www.madmalls.com/blog/post/selection-sort-algorithm/)
+- [Python3排序算法03 - 插入排序](http://www.madmalls.com/blog/post/insertion-sort-algorithm/)
+- [Python3排序算法04 - 希尔排序](http://www.madmalls.com/blog/post/shell-sort-algorithm/)
+- [Python3排序算法05 - 归并排序](http://www.madmalls.com/blog/post/merge-sort-algorithm/)
+- [Python3排序算法06 - 快速排序](http://www.madmalls.com/blog/post/quick-sort-algorithm/)
