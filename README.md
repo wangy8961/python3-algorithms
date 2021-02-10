@@ -46,3 +46,5 @@
 - [Python3排序算法04 - 希尔排序](http://www.madmalls.com/blog/post/shell-sort-algorithm/)
 - [Python3排序算法05 - 归并排序](http://www.madmalls.com/blog/post/merge-sort-algorithm/)
 - [Python3排序算法06 - 快速排序](http://www.madmalls.com/blog/post/quick-sort-algorithm/)
+
+# 5. LeetCode
