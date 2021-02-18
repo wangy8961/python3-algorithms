@@ -4,8 +4,8 @@
 解题思路：
 首先我们引入一个队列，这是把递归程序改写成迭代程序的常用方法。
 1. 初始化时我们把根节点入队两次。
-2. 每次提取两个节点并比较它们的值（队列中每两个连续的节点应该是相等的，而且它们的子树互为镜像），然后将两个节点的左右子节点按相反的顺序插入队列中。
-3. 当队列为空时，或者我们检测到树不对称（即从队列中取出两个不相等的连续节点）时，该算法结束。
+2. 每次出队两个节点并比较它们的值（队列中每两个连续的节点应该是相等的，而且它们的子树互为镜像），然后将两个节点的左右子节点按相反的顺序插入队列中。
+3. 当队列为空时，或者我们检测到树不对称时（即从队列中取出的两个连续节点不相等），该算法结束。
 
 
 时间复杂度：O(n)，其中 n 为二叉树节点的个数。每个节点只会被访问一次。
@@ -21,14 +21,14 @@
 #         self.right = right
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        queue = []  # 创建队列
+        que = []  # 创建队列
         u, v = root, root
         # 根节点入队
-        queue.append(u)
-        queue.append(v)
+        que.append(u)
+        que.append(v)
 
-        while queue:
-            u, v = queue.pop(0), queue.pop(0)  # 每次提取两个节点
+        while que:
+            u, v = que.pop(0), que.pop(0)  # 每次出队两个节点
             if not u and not v:
                 continue
             if not u or not v:
@@ -37,10 +37,10 @@ class Solution:
                 return False  # 检测到树不对称
 
             # 将两个节点的左右子节点按相反的顺序插入队列中
-            queue.append(u.left)
-            queue.append(v.right)
+            que.append(u.left)
+            que.append(v.right)
 
-            queue.append(u.right)
-            queue.append(v.left)
+            que.append(u.right)
+            que.append(v.left)
 
         return True  # 当队列为空时，也没有检测到树不对称，说明是对称二叉树

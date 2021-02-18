@@ -5,13 +5,13 @@ https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/
 解题模板：
 1. return specific value for null node
 2. update the answer if needed                      // answer <-- params
-3. left_ans = top_down(root.left, left_params)		// left_params <-- root.val, params
-4. right_ans = top_down(root.right, right_params)	// right_params <-- root.val, params
+3. left_ans = top_down(root.left, left_params)      // left_params <-- root.val, params
+4. right_ans = top_down(root.right, right_params)   // right_params <-- root.val, params
 5. return the answer if needed                      // answer <-- left_ans, right_ans
 
-何时使用：
+适用场景：
 当遇到树问题时，请先思考一下两个问题：
-1. 你能确定一些参数，从该节点自身出发寻找答案吗？
+1. 如果你能确定一些参数，那么从该节点自身出发，你能计算出答案吗？
 2. 你可以使用这些参数和节点自身的值来决定传递给它的左右子节点的参数吗？(sum - val)
 
 解题思路：
@@ -36,6 +36,6 @@ class Solution:
     def hasPathSum(self, root: TreeNode, targetSum: int) -> bool:
         if not root:
             return False
-        if root.left is None and root.right is None:  # leaf node
+        if not root.left and not root.right:  # leaf node
             return root.val == targetSum
         return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val)

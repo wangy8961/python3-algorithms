@@ -9,8 +9,8 @@ https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/solution/di-gui-bf
 4. 右子节点先入栈、左子节点后入栈。类似于「前序遍历」
 
 
-时间复杂度：O(n)，其中 n 为二叉树节点的个数。每个节点只会被访问一次。
-空间复杂度：此方法空间的消耗取决于栈存储的元素数量，其在最坏情况下会达到 O(n)。
+时间复杂度：O(n)，其中 n 为二叉树节点的个数。每个节点只会被遍历一次。
+空间复杂度：取决于栈中存储的最大元素个数，其在最坏情况下会达到 O(n)。
 """
 
 
@@ -30,9 +30,9 @@ class Solution:
         while stack:  # 如果栈不为空，说明还没有遍历完整棵树
             cur, depth = stack.pop()  # 出栈，元组解包
             ans = max(ans, depth)  # 有可能需要更新 ans
-            if cur.right is not None:
+            if cur.right:
                 stack.append((cur.right, depth + 1))  # 右子节点入栈
-            if cur.left is not None:
+            if cur.left:
                 stack.append((cur.left, depth + 1))  # 左子节点入栈
 
         return ans

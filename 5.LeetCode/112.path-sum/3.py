@@ -9,8 +9,8 @@ https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/solution/di-gui-bf
 4. 右子节点先入栈、左子节点后入栈。类似于「前序遍历」
 
 
-时间复杂度：O(n)，其中 n 为二叉树节点的个数。每个节点只会被访问一次。
-空间复杂度：此方法空间的消耗取决于栈存储的元素数量，其在最坏情况下会达到 O(n)。
+时间复杂度：O(n)，其中 n 为二叉树节点的个数。每个节点只会被遍历一次。
+空间复杂度：取决于栈中存储的最大元素个数，其在最坏情况下会达到 O(n)。
 """
 
 
@@ -28,11 +28,11 @@ class Solution:
         stack = [(root, root.val)]  # 创建栈，根节点和它对应的路径组成的元组入栈
         while stack:  # 如果栈不为空，说明还没有遍历完整棵树
             cur, path = stack.pop()  # 出栈，元组解包
-            if cur.left is None and cur.right is None and path == targetSum:  # leaf node. 注意：只有叶子节点才判断路径是否等于 sum
+            if not cur.left and not cur.right and path == targetSum:  # leaf node. 注意：只有叶子节点才判断路径是否等于 sum
                 return True
-            if cur.right is not None:
+            if cur.right:
                 stack.append((cur.right, path + cur.right.val))  # 右子节点入栈
-            if cur.left is not None:
+            if cur.left:
                 stack.append((cur.left, path + cur.left.val))  # 左子节点入栈
 
         return False  # 当栈为空时，说明不存在根节点到叶子节点的路径等于 targetSum
