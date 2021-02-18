@@ -16,7 +16,7 @@ class Solution:
         if not root:
             return False
 
-        def _dfs(root: TreeNode, full_path: list[int]) -> bool:
+        def _dfs(root: TreeNode, full_path: List[int]) -> bool:
             if not root:  # 叶子节点的左右子节点都是 None，递归退出条件
                 return False
             if not root.left and not root.right and sum(full_path) == targetSum:  # leaf node. 注意：只有叶子节点才判断 full_path 求和后是否等于 targetSum
