@@ -4,7 +4,7 @@ https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/
 https://leetcode-cn.com/problems/binary-tree-preorder-traversal/solution/tu-jie-er-cha-shu-de-si-chong-bian-li-by-z1m/
 
 解题思路：
-什么是二叉树的前序遍历：按照访问「根节点、左子树、右子树」的方式遍历这棵树，
+什么是二叉树的中序遍历：按照访问「左子树、根节点、右子树」的方式遍历这棵树，
 而在访问左子树或者右子树的时候，我们按照同样的方式遍历，直到遍历完整棵树。
 因此整个遍历过程天然具有递归的性质，我们可以直接用递归函数来模拟这一过程
 
@@ -21,13 +21,13 @@ https://leetcode-cn.com/problems/binary-tree-preorder-traversal/solution/tu-jie-
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
         def _dfs(root: TreeNode):
             if not root:
                 return
 
-            res.append(root.val)  # 将根节点的值添加到结果中
             _dfs(root.left)  # 递归遍历左子树
+            res.append(root.val)  # 将根节点的值添加到结果中
             _dfs(root.right)  # 递归遍历右子树
 
         res = []
