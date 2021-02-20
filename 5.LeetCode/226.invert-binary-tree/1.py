@@ -1,6 +1,7 @@
 """
-方法二: 深度优先搜索(DFS) 之 "自顶向下" 的递归
+方法一: 深度优先搜索(DFS) 之 "自顶向下" 的递归
 https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/
+https://leetcode-cn.com/problems/invert-binary-tree/solution/dong-hua-yan-shi-liang-chong-shi-xian-226-fan-zhua/
 
 解题模板：
 1. return specific value for null node
@@ -12,13 +13,11 @@ https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/
 适用场景：
 当遇到树问题时，请先思考一下两个问题：
 1. 如果你能确定一些参数，那么从该节点自身出发，你能计算出答案吗？
-2. 你可以使用这些参数和节点自身的值来决定传递给它的左右子节点的参数吗？(depth + 1)
+2. 你可以使用这些参数和节点自身的值来决定传递给它的左右子节点的参数吗？
 
 解题思路：
-我们知道根节点的深度是 1。
-对于每个节点，如果我们知道该节点的深度，那我们就可以知道它的左右子节点的深度。
-因此，在调用递归函数的时候，将节点的深度传递为一个参数，那么所有的节点就都可以知道它们自身的深度。
-而对于叶节点，我们可以通过更新深度从而获取最终的答案
+如果根节点存在，交换它的左右节点
+再递归交换它的左子树和右子树的左右节点即可
 
 
 时间复杂度：O(n)，其中 n 为二叉树节点的个数。每个节点在递归中只被遍历一次。
@@ -33,17 +32,12 @@ https://leetcode-cn.com/leetbook/read/data-structure-binary-tree/xefb4e/
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxDepth(self, root: TreeNode) -> int:
-        ans = 0  # don't forget to initialize answer before call _dfs
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:  # 递归终止条件
+            return root
 
-        def _dfs(root: TreeNode, depth: int) -> None:
-            if not root:
-                return
-            if not root.left and not root.right:  # leaf node
-                nonlocal ans
-                ans = max(ans, depth)  # update the answer if needed
-            _dfs(root.left, depth + 1)
-            _dfs(root.right, depth + 1)
+        root.left, root.right = root.right, root.left  # 交换左、右节点
+        self.invertTree(root.left)  # 递归反转左子树
+        self.invertTree(root.right)  # 递归反转右子树
 
-        _dfs(root, 1)  # the depth of root node is 1
-        return ans
+        return root

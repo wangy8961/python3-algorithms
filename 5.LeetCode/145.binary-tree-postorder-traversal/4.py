@@ -29,12 +29,11 @@ class Solution:
         while stack:
             cur, flag = stack.pop()  # 弹出栈顶元素，元组解包。cur 相当于二叉树(或左右子树)的根节点，
             if flag == 0:
-                if cur:
-                    stack.append((cur, 1))  # 重新将 cur 压栈，标志位修改为 1，表示入栈两次了
-                    if cur.right:
-                        stack.append((cur.right, 0))  # 右子节点入栈
-                    if cur.left:
-                        stack.append((cur.left, 0))  # 左子节点入栈
+                stack.append((cur, 1))  # 重新将 cur 压栈，标志位修改为 1，表示入栈两次了
+                if cur.right:
+                    stack.append((cur.right, 0))  # 右子节点入栈
+                if cur.left:
+                    stack.append((cur.left, 0))  # 左子节点入栈
             else:  # 将入栈两次的 cur 的值添加到结果中
                 res.append(cur.val)
 

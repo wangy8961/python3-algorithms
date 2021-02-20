@@ -22,7 +22,7 @@ https://leetcode-cn.com/problems/binary-tree-preorder-traversal/solution/tu-jie-
 #         self.right = right
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> List[int]:
-        def _dfs(root: TreeNode):
+        def _dfs(root: TreeNode) -> None:
             if not root:
                 return
 

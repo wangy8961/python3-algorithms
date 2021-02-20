@@ -31,11 +31,10 @@ class Solution:
         stack = [root]  # 创建栈，根节点入栈
         while stack:
             cur = stack.pop()  # 弹出栈顶元素
-            if cur:
-                res.append(cur.val)  # 将栈顶元素的值添加到结果中
-                if cur.right:
-                    stack.append(cur.right)  # 右子节点入栈
-                if cur.left:
-                    stack.append(cur.left)  # 左子节点入栈
+            res.append(cur.val)  # 将栈顶元素的值添加到结果中
+            if cur.right:
+                stack.append(cur.right)  # 右子节点入栈
+            if cur.left:
+                stack.append(cur.left)  # 左子节点入栈
 
         return res
