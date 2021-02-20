@@ -36,7 +36,7 @@ class Solution:
         if not root:  # 递归终止条件
             return root
 
-        root.left, root.right = root.right, root.left  # 交换左、右节点
+        root.left, root.right = root.right, root.left  # 交换左、右节点 (实际上会把左右子树对调)
         self.invertTree(root.left)  # 递归反转左子树
         self.invertTree(root.right)  # 递归反转右子树
 
