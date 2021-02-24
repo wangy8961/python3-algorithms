@@ -44,7 +44,7 @@ class Solution:
         size = 1  # size 表示要进行合并操作的左右子序列的长度，取值范围为 1, 2, 4, 8 ... n/2。当 size = 1 时，左右子序列都是单个元素，肯定为有序的，可以直接合并操作了
         while size <= n - 1:  # 如果 size < n-1，则序列为奇数个数时，最后一个元素不会被排序(错误!)
             low = 0  # low, mid, high 都表示下标
-            while low < n - 1:  # 理想情况下是左右子序列两两合并，但是也可能存在剩余一个左子序列没人跟它合并，直到最后一次 merge 操作。所以，保证 mid = low + size 不会下标越界即可
+            while low < n - 1:  # 理想情况下是左右子序列两两合并，但是也可能存在剩余一个左子序列没人跟它合并，直到最后一次 merge 操作
                 mid = min(low + size - 1, n - 1)
                 high = min(low + 2 * size - 1, n - 1)
 
