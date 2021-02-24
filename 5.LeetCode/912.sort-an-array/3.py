@@ -12,7 +12,7 @@ from collections import deque
 
 
 class Solution:
-    def merge(self, left, right):
+    def merge(self, left: int, right: int) -> List[int]:
         """使用双端队列 deque 简化左右子序列的合并操作"""
         merged, left, right = [], deque(left), deque(right)
 
