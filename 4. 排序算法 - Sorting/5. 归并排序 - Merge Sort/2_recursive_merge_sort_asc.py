@@ -22,12 +22,12 @@ def merge_sort(L):
 
 
 def merge(left, right):
-    '''归并操作，使用deque'''
+    '''使用双端队列 deque 简化左右子序列的合并操作'''
     merged, left, right = [], deque(left), deque(right)
 
     while left and right:
         merged.append(left.popleft() if left[0] <= right[0] else right.popleft())  # deque popleft is also O(1)
-    merged.extend(right if right else left)  # 如果 left序列 还有没比较的元素
+    merged.extend(right if right else left)  # 合并左右子序列中剩余的还没有比较的元素
 
     return merged
 

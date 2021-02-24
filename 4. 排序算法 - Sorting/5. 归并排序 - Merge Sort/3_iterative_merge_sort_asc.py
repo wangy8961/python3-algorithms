@@ -4,7 +4,7 @@ from collections import deque
 def merge_sort(L):
     '''使用 迭代(iterative) 的方式，实现归并排序算法
     自底向上(Bottom Up)：
-    1. size = 1, 对单个元素的左右子序列进行归并操作
+    1. size = 1, 对仅包含单个元素的左右子序列进行归并操作
     2. size = 2, 步骤1归并排序后，每2个元素已经是排序好的，所以可以对分别包含2个元素的左右子序列进行归并操作
     3. size = 4, 步骤2归并排序后，每4个元素已经是排序好的，所以可以对分别包含4个元素的左右子序列进行归并操作
     ...
@@ -35,12 +35,12 @@ def merge_sort(L):
 
 
 def merge(left, right):
-    '''归并操作，使用deque'''
+    '''使用双端队列 deque 简化左右子序列的合并操作'''
     merged, left, right = [], deque(left), deque(right)
 
     while left and right:
         merged.append(left.popleft() if left[0] <= right[0] else right.popleft())  # deque popleft is also O(1)
-    merged.extend(right if right else left)  # 如果 left序列 还有没比较的元素
+    merged.extend(right if right else left)  # 合并左右子序列中剩余的还没有比较的元素
 
     return merged
 

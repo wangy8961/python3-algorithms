@@ -1,5 +1,8 @@
 def quick_sort(L):
-    '''使用 '列表生成式(List Comprehensions)' 查找比 '基准(pivot)' 小或大的元素序列'''
+    '''使用 '列表生成式(List Comprehensions)' 查找比 '基准(pivot)' 小或大的元素序列
+
+    需要额外 O(n) 的空间，不是原地排序，那就无法体现出与归并排序的优势，所以这实际上不算是快排算法
+    '''
     n = len(L)
     if n <= 1:
         return L

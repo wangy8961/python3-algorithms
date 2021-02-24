@@ -26,7 +26,7 @@ def partition(L, first, last):
         while L[rightmark] >= pivot_value and rightmark >= leftmark:
             rightmark = rightmark - 1
 
-        if rightmark < leftmark:  # 如果 leftmark 和 rightmark 交错而过了，说明 '基准' 值的正确位置已经找到了
+        if rightmark < leftmark:  # 如果 leftmark 和 rightmark 交错而过了，说明 '基准' 值的正确位置已经找到了：1. 交错而过说明除pivot之外的所有元素都被遍历了 2. rightmark 此时找到的就是最后一个「小于或等于pivot的区间」的元素，那么只需要交换 L[rightmark] 和 pivot 即可
             done = True
         else:  # 如果 leftmark 和 rightmark 还没有交错，则交换它们查找到的元素值
             L[leftmark], L[rightmark] = L[rightmark], L[leftmark]
