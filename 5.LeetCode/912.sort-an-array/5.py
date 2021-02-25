@@ -1,5 +1,5 @@
 """
-方法四：归并排序(优化版)
+方法五：归并排序(优化版)
 https://www.geeksforgeeks.org/iterative-merge-sort/
 
 解题思路：
@@ -8,6 +8,10 @@ https://www.geeksforgeeks.org/iterative-merge-sort/
 2. size = 2, 步骤1归并排序后，每2个元素已经是排序好的，所以可以对分别包含2个元素的左右子序列进行合并操作
 3. size = 4, 步骤2归并排序后，每4个元素已经是排序好的，所以可以对分别包含4个元素的左右子序列进行合并操作
 4. 如此反复执行，就能得到一个有序序列了
+
+与方法四的唯一区别是 merge 函数：
+先将左子序列(arr[low...mid])复制为 arr1、将右子序列(arr[mid+1...high])复制为 arr2
+原始序列(arr[low...high])就是用来保存 arr1 和 arr2 合并后的结果数组
 """
 
 
@@ -17,27 +21,30 @@ class Solution:
         左子数组 arr1 下标 low 至 mid
         右子数组 arr2 下标 mid + 1 至 high
         """
-        temp = []  # 临时结果数组，大小为 high - low + 1
-        i, j = low, mid + 1  # 分别表示 arr1 和 arr2 数组中当前迭代的数据的下标
+        arr1 = nums[low:mid+1]  # 复制左子数组到临时数组 arr1，大小为 mid - low + 1
+        arr2 = nums[mid+1:high+1]  # 复制右子数组到临时数组 arr2，大小为 high - mid
+        # 原始 nums[low:high+1] 就是存储合并后的结果数组
 
-        while i <= mid and j <= high:
-            if nums[i] <= nums[j]:  # 如果 arr1 中的值较小时
-                temp.append(nums[i])
+        i, j = 0, 0  # 分别表示 arr1 和 arr2 数组中当前迭代的数据的下标
+        k = low  # 结果数组的下标，即较小值应该存放的位置
+        while i < mid - low + 1 and j < high - mid:
+            if arr1[i] <= arr2[j]:  # 如果 arr1 中的值较小时
+                nums[k] = arr1[i]
                 i += 1
             else:  # 如果 arr2 中的值较小时
-                temp.append(nums[j])
+                nums[k] = arr2[j]
                 j += 1
 
-        if i <= mid:  # arr1 可能还有剩余的数据
-            for p in range(i, mid + 1):
-                temp.append(nums[p])
-        if j <= high:  # arr2 可能还有剩余的数据
-            for q in range(j, high + 1):
-                temp.append(nums[q])
+            k += 1  # 结果数组下标右移
 
-        # 将临时结果数组复制到原始数组中指定区域。不要使用切片操作：nums[low:high+1] = temp
-        for k in range(high - low + 1):
-            nums[low + k] = temp[k]
+        if i < mid - low + 1:  # arr1 可能还有剩余的数据
+            for p in range(i, mid - low + 1):
+                nums[k] = arr1[p]
+                k += 1
+        if j < high - mid:  # arr2 可能还有剩余的数据
+            for q in range(j, high - mid):
+                nums[k] = arr2[q]
+                k += 1
 
     def merge_sort(self, nums: List[int]) -> List[int]:
         """不断计算出提供给合并函数 merge() 的左右子序列的下标即可"""

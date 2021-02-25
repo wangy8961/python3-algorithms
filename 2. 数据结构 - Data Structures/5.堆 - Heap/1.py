@@ -102,20 +102,20 @@ class MinHeap:
         end: 到哪个下标结束堆化，比如 n (所有下标必须小于 n )
         """
         while True:
-            larger = start  # 首先假设下标 start 的节点比它的左、右孩子节点小
+            smaller = start  # 首先假设下标 start 的节点比它的左、右孩子节点小
             left = 2 * start + 1  # 下标 start 的节点的左孩子节点的下标
             right = 2 * start + 2  # 下标 start 的节点的右孩子节点的下标
 
-            if left < end and self.heap[left] < self.heap[larger]:  # 如果左节点小，则 larger 更新为 left 下标
-                larger = left
-            if right < end and self.heap[right] < self.heap[larger]:  # 如果右节点更小，则 larger 更新为 right 下标
-                larger = right
+            if left < end and self.heap[left] < self.heap[smaller]:  # 如果左节点小，则 smaller 更新为 left 下标
+                smaller = left
+            if right < end and self.heap[right] < self.heap[smaller]:  # 如果右节点更小，则 smaller 更新为 right 下标
+                smaller = right
 
-            if larger == start:  # 说明下标 start 的节点就是较小的，不需要交换。注意：此次循环前，下标 left 节点已经是以它为根的子树中最小的节点了；同理，下标 right 节点也已经是以它为根的子树中最小的节点了。所以，如果下标 start 节点比 left 和 right 都小，则无需继续向下探测，它已经是以它为根的子树中最小的节点了
+            if smaller == start:  # 说明下标 start 的节点就是较小的，不需要交换。注意：此次循环前，下标 left 节点已经是以它为根的子树中最小的节点了；同理，下标 right 节点也已经是以它为根的子树中最小的节点了。所以，如果下标 start 节点比 left 和 right 都小，则无需继续向下探测，它已经是以它为根的子树中最小的节点了
                 break
             else:
-                self.heap[start], self.heap[larger] = self.heap[larger], self.heap[start]  # 交换
-                start = larger  # 继续处理以下标 larger 为根节点的子树
+                self.heap[start], self.heap[smaller] = self.heap[smaller], self.heap[start]  # 交换
+                start = smaller  # 继续处理以下标 smaller 为根节点的子树
 
     # def _siftdown(self, start: int, end: int):  # 「递归」
     #     """
@@ -128,20 +128,20 @@ class MinHeap:
     #     start: 从哪个下标开始堆化，比如整棵树的根节点下标 0
     #     end: 到哪个下标结束堆化，比如 n (所有下标必须小于 n )
     #     """
-    #     larger = start  # 首先假设下标 start 的节点比它的左、右孩子节点小
+    #     smaller = start  # 首先假设下标 start 的节点比它的左、右孩子节点小
     #     left = 2 * start + 1  # 下标 start 的节点的左孩子节点的下标
     #     right = 2 * start + 2  # 下标 start 的节点的右孩子节点的下标
 
-    #     if left < end and self.heap[left] < self.heap[larger]:  # 如果左节点小，则 larger 更新为 left 下标
-    #         larger = left
-    #     if right < end and self.heap[right] < self.heap[larger]:  # 如果右节点更小，则 larger 更新为 right 下标
-    #         larger = right
+    #     if left < end and self.heap[left] < self.heap[smaller]:  # 如果左节点小，则 smaller 更新为 left 下标
+    #         smaller = left
+    #     if right < end and self.heap[right] < self.heap[smaller]:  # 如果右节点更小，则 smaller 更新为 right 下标
+    #         smaller = right
 
-    #     if larger == start:  # 递归退出条件。说明下标 start 的节点就是较小的，不需要交换。注意：此次循环前，下标 left 节点已经是以它为根的子树中最小的节点了；同理，下标 right 节点也已经是以它为根的子树中最小的节点了。所以，如果下标 start 节点比 left 和 right 都小，则无需继续向下探测，它已经是以它为根的子树中最小的节点了
+    #     if smaller == start:  # 递归退出条件。说明下标 start 的节点就是较小的，不需要交换。注意：此次循环前，下标 left 节点已经是以它为根的子树中最小的节点了；同理，下标 right 节点也已经是以它为根的子树中最小的节点了。所以，如果下标 start 节点比 left 和 right 都小，则无需继续向下探测，它已经是以它为根的子树中最小的节点了
     #         return
-    #     else:  # 说明下标 start 的节点不是较小的，需要交换它与 larger 的节点
-    #         self.heap[start], self.heap[larger] = self.heap[larger], self.heap[start]  # 交换
-    #         self._siftup(larger, end)  # 递归处理以下标 larger 为根节点的子树
+    #     else:  # 说明下标 start 的节点不是较小的，需要交换它与 smaller 的节点
+    #         self.heap[start], self.heap[smaller] = self.heap[smaller], self.heap[start]  # 交换
+    #         self._siftup(smaller, end)  # 递归处理以下标 smaller 为根节点的子树
 
 
 if __name__ == '__main__':
