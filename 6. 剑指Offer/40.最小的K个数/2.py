@@ -34,8 +34,9 @@ class Solution:
 
         for i in range(k, len(arr)):
             if -arr[i] > h[0]:  # 如果当前遍历到的数取反后，比小顶堆的堆顶的数要大
-                heapq.heappop(h)  # 把堆顶的数弹出
-                heapq.heappush(h, -arr[i])  # 再插入当前遍历到的数的负数
+                # heapq.heappop(h)  # 把堆顶的数弹出
+                # heapq.heappush(h, -arr[i])  # 再插入当前遍历到的数的负数
+                heapq.heapreplace(h, -arr[i])  # 等同于上面两行代码，但是只会重新进行一次堆化操作，效率更高！
 
         # 将小顶堆里的数全部取反，再存入数组返回
         ans = [-x for x in h]

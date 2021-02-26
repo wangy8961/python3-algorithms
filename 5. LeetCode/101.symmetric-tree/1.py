@@ -27,9 +27,11 @@ class Solution:
         return self.check(root, root)
 
     def check(self, p: TreeNode, q: TreeNode) -> bool:
+        # 递归退出条件
         if not p and not q:  # 两棵空树
             return True
         if not p or not q:  # 只有一课空树
             return False
+
         # 根节点的值相等，且p的左子树与q的右子树互为镜像、p的右子树与q的左子树互为镜像
         return p.val == q.val and self.check(p.left, q.right) and self.check(p.right, q.left)

@@ -2,8 +2,13 @@
 方法二: 迭代
 
 解题思路：
+如果一个树的左子树与右子树是镜像对称的，那么这颗树就是对称的。因此，该问题可以转化为：两颗树在什么情况下互为镜像？
+两颗树同时满足下面的条件时互为镜像：
+1. 它们的两个根节点具有相同的值
+2. 每颗树的右子树都与另一颗树的左子树镜像对称
+
 首先我们引入一个队列，这是把递归程序改写成迭代程序的常用方法。
-1. 初始化时我们把根节点入队两次。
+1. 初始化时我们把两颗子树的根节点入队。
 2. 每次出队两个节点并比较它们的值（队列中每两个连续的节点应该是相等的，而且它们的子树互为镜像），然后将两个节点的左右子节点按相反的顺序插入队列中。
 3. 当队列为空时，或者我们检测到树不对称时（即从队列中取出的两个连续节点不相等），该算法结束。
 
@@ -22,25 +27,24 @@
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
         que = []  # 创建队列
-        u, v = root, root
-        # 根节点入队
-        que.append(u)
-        que.append(v)
+        # 两颗子树的根节点入队
+        que.append(root)
+        que.append(root)
 
         while que:
-            u, v = que.pop(0), que.pop(0)  # 每次出队两个节点
-            if not u and not v:
+            p, q = que.pop(0), que.pop(0)  # 每次出队两个节点
+            if not p and not q:
                 continue
-            if not u or not v:
+            if not p or not q:
                 return False  # 检测到树不对称
-            if u.val != v.val:
+            if p.val != q.val:
                 return False  # 检测到树不对称
 
             # 将两个节点的左右子节点按相反的顺序插入队列中
-            que.append(u.left)
-            que.append(v.right)
+            que.append(p.left)
+            que.append(q.right)
 
-            que.append(u.right)
-            que.append(v.left)
+            que.append(p.right)
+            que.append(q.left)
 
         return True  # 当队列为空时，也没有检测到树不对称，说明是对称二叉树
