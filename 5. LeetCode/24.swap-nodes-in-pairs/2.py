@@ -1,5 +1,5 @@
 """
-方法二: 迭代
+方法二: 递归
 https://leetcode-cn.com/problems/swap-nodes-in-pairs/solution/liang-liang-jiao-huan-lian-biao-zhong-de-jie-di-91/
 
 解题思路：

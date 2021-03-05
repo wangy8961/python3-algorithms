@@ -10,6 +10,22 @@
 
 
 class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+
+        # 1. 构建大顶堆：「原地堆化」调整 nums 数组，让其满足大顶堆的特性
+        # 假设存储堆的数组 nums 从下标 0 开始计数，元素个数为 n。那么下标为 i 的元素的左孩子下标为 2i + 1，右孩子下标为 2i + 2
+        # 「非叶子节点」的最大的下标为 n//2 - 1，所以我们只需要「自底向上、自右向左」依次针对每个非叶子节点进行「自顶向下」堆化，让其满足大顶堆的特性即可
+        for i in reversed(range(n // 2)):  # 假设 nums = [30, 10, 50, 20, 90, 70]，则 i = [2, 1, 0]
+            self.heapify(nums, i, n)  # 以每个「非叶子节点」为根节点，将其和其子树使用「自顶向下」进行堆化，调整成大顶堆
+
+        # 2. 排序
+        for i in range(n - 1, -1, -1):  # 下标 i 取值 [n-1, n-2, ... , 0]
+            nums[0], nums[i] = nums[i], nums[0]  # 交换大顶堆的堆顶元素和数组的最后一个元素
+            self.heapify(nums, 0, i)  # 对 nums[0:i] 子数组(只剩下 i 个元素，所以 heapify 函数的第三个参数为 i)重新进行堆化
+
+        return nums
+
     def heapify(self, nums: List[int], start: int, end: int):  # 「迭代」
         """
         「自顶向下」进行堆化
@@ -62,19 +78,3 @@ class Solution:
     #     else:  # 说明下标 start 的节点不是较大的，需要交换它与 larger 的节点
     #         nums[start], nums[larger] = nums[larger], nums[start]  # 交换
     #         self._siftup(larger, end)  # 递归处理以下标 larger 为根节点的子树
-
-    def sortArray(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-
-        # 1. 构建大顶堆：「原地堆化」调整 nums 数组，让其满足大顶堆的特性
-        # 假设存储堆的数组 nums 从下标 0 开始计数，元素个数为 n。那么下标为 i 的元素的左孩子下标为 2i + 1，右孩子下标为 2i + 2
-        # 「非叶子节点」的最大的下标为 n//2 - 1，所以我们只需要「自底向上、自右向左」依次针对每个非叶子节点进行「自顶向下」堆化，让其满足大顶堆的特性即可
-        for i in reversed(range(n // 2)):  # 假设 nums = [30, 10, 50, 20, 90, 70]，则 i = [2, 1, 0]
-            self.heapify(nums, i, n)  # 以每个「非叶子节点」为根节点，将其和其子树使用「自顶向下」进行堆化，调整成大顶堆
-
-        # 2. 排序
-        for i in range(n - 1, -1, -1):  # 下标 i 取值 [n-1, n-2, ... , 0]
-            nums[0], nums[i] = nums[i], nums[0]  # 交换大顶堆的堆顶元素和数组的最后一个元素
-            self.heapify(nums, 0, i)  # 对 nums[0:i] 子数组(只剩下 i 个元素，所以 heapify 函数的第三个参数为 i)重新进行堆化
-
-        return nums

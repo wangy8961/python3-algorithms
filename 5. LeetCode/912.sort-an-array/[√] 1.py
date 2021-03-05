@@ -7,6 +7,17 @@
 
 
 class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        self.quick_sort(nums, 0, len(nums) - 1)
+        return nums
+
+    def quick_sort(self, nums: List[int], low: int, high: int) -> None:
+        if low >= high:  # 递归退出条件
+            return
+        mid = self.partition(nums, low, high)  # 返回基准元素 pivot 的下标
+        self.quick_sort(nums, low, mid - 1)  # 对左边区间递归的快排
+        self.quick_sort(nums, mid + 1, high)  # 对右边区间递归的快排
+
     def partition(self, nums: List[int], low: int, high: int) -> int:
         """分区操作：将小于或等于基准值的元素放在基准的左边，将大于基准值的元素放在基准的右边，基准处于数列的中间位置，
         返回基准元素 pivot 的下标"""
@@ -25,14 +36,3 @@ class Solution:
 
         nums[i + 1], nums[high] = nums[high], nums[i + 1]  # 「小于或等于pivot的区间」后面的元素应该是基准元素应该在的位置！所以将pivot交换到正确的位置，此时它的新下标 i + 1 就是 partition() 的返回值
         return i + 1
-
-    def quick_sort(self, nums: List[int], low: int, high: int) -> None:
-        if low >= high:  # 递归退出条件
-            return
-        mid = self.partition(nums, low, high)  # 返回基准元素 pivot 的下标
-        self.quick_sort(nums, low, mid - 1)  # 对左边区间递归的快排
-        self.quick_sort(nums, mid + 1, high)  # 对右边区间递归的快排
-
-    def sortArray(self, nums: List[int]) -> List[int]:
-        self.quick_sort(nums, 0, len(nums) - 1)
-        return nums

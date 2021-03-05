@@ -3,7 +3,7 @@
 
 解题思路：
 使用哈希表来存储所有已经访问过的节点。
-每次我们到达一个节点，如果该节点已经存在于哈希表中，则说明该链表是环形链表，否则就将该节点加入哈希表中。
+每次我们到达一个节点，如果该节点已经存在于哈希表中，则说明该链表是环形链表，直接返回当前节点即可；否则就将该节点加入哈希表中
 重复这一过程，直到我们遍历完整个链表即可
 
 复杂度分析：
@@ -19,15 +19,15 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    def detectCycle(self, head: ListNode) -> ListNode:
         seen = set()
 
         cur = head
         while cur:
             if cur in seen:
-                return True
+                return cur
 
             seen.add(cur)
             cur = cur.next
 
-        return False
+        return None

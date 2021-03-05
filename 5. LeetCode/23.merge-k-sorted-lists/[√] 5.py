@@ -35,7 +35,7 @@ import heapq
 #         self.val = val
 #         self.next = next
 class HeapNode:
-    def __init__(self, node: ListNode):
+    def __init__(self, node: ListNode = None):
         self.val = node.val
         self.node = node
 

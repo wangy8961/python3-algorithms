@@ -12,17 +12,11 @@ from collections import deque
 
 
 class Solution:
-    def merge(self, left: int, right: int) -> List[int]:
-        """使用双端队列 deque 简化左右子序列的合并操作"""
-        merged, left, right = [], deque(left), deque(right)
+    def sortArray(self, nums: List[int]) -> List[int]:
+        self.merge_sort(nums)
+        return nums
 
-        while left and right:
-            merged.append(left.popleft() if left[0] <= right[0] else right.popleft())  # deque popleft is also O(1)
-        merged.extend(right if right else left)  # 合并左右子序列中剩余的还没有比较的元素
-
-        return merged
-
-    def merge_sort(self, nums: List[int]) -> List[int]:
+    def merge_sort(self, nums: List[int]):
         """不断计算出提供给合并函数 merge(left, right) 的左右子序列即可"""
         n = len(nums)
         size = 1  # size 表示要进行合并操作的左右子序列的长度，取值范围为 1, 2, 4 ... n-1。当 size = 1 时，左右子序列都是单个元素，肯定为有序的，可以直接合并操作了
@@ -42,7 +36,12 @@ class Solution:
 
             size = 2 * size  # 自底向上，第1次合并操作是针对单个元素，结果为2个元素。第2次合并操作就是针对2个元素，结果为4个元素...
 
-        return nums
+    def merge(self, left: int, right: int) -> List[int]:
+        """使用双端队列 deque 简化左右子序列的合并操作"""
+        merged, left, right = [], deque(left), deque(right)
 
-    def sortArray(self, nums: List[int]) -> List[int]:
-        return self.merge_sort(nums)
+        while left and right:
+            merged.append(left.popleft() if left[0] <= right[0] else right.popleft())  # deque popleft is also O(1)
+        merged.extend(right if right else left)  # 合并左右子序列中剩余的还没有比较的元素
+
+        return merged

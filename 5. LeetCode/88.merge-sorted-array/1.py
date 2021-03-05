@@ -16,6 +16,10 @@ sort(self, /, *, key=None, reverse=False)
     order of two equal elements is maintained).
 
 因此，我们可以将 nums2 中的数据依次复制到 nums1 的后半段(下标为 m 至 m+n-1)，再借助于 list.sort() 进行原地排序
+
+复杂度分析：
+时间复杂度：O((n+m) * log(n+m))。
+空间复杂度：O(log(n+m))。
 """
 
 
